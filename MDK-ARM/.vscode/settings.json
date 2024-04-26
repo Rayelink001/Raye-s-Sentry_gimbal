@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "wt16c.h": "c",
+        "vision_task.h": "c",
+        "can_receive.h": "c",
+        "cmsis_os.h": "c",
+        "gimbal_task.h": "c"
+    }
+}

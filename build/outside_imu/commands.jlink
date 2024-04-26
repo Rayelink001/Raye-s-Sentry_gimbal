@@ -1,0 +1,6 @@
+r
+halt
+loadfile "f:\rm_infantry_24_v2_gimbal-main (1)\rm_infantry_24_v2_gimbal-main\build\outside_imu\outside_imu.hex"
+r
+go
+exit

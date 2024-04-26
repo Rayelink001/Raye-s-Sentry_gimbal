@@ -1,0 +1,10 @@
+>>> cc
+
+".\task\vision_task.c", line 31: Warning:  #550-D: variable "vision_parsed_cmd_id"  was set but never used
+      uint16_t vision_parsed_cmd_id = 0;
+               ^
+.\task\vision_task.c: 1 warning, 0 errors
+
+>>> ld
+
+Program Size: Code=31052 RO-data=3648 RW-data=1340 ZI-data=21372  
