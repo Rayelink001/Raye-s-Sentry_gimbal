@@ -1,0 +1,70 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: ¦ÌVision V5.26.2.0
+Copyright (C) 2018 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: a lin, a, LIC=KIVNB-23MGV-YD0K5-GGHMG-RV7YF-FN1I6
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Professional  Version: 5.26.2.0
+Toolchain Path:  D:\Keil5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 6 (build 750)
+Assembler:       Armasm.exe V5.06 update 6 (build 750)
+Linker/Locator:  ArmLink.exe V5.06 update 6 (build 750)
+Library Manager: ArmAr.exe V5.06 update 6 (build 750)
+Hex Converter:   FromElf.exe V5.06 update 6 (build 750)
+CPU DLL:         SARMCM3.DLL V5.26.2.0
+Dialog DLL:      DCM.DLL V1.17.2.0
+Target DLL:      Segger\JL2CM3.dll V2.99.15.0
+Dialog DLL:      TCM.DLL V1.36.1.0
+ 
+<h2>Project:</h2>
+e:\robomaster\thelastversion\rm_infantry_24_v2_gimbal-main (1)\rm_infantry_24_v2_gimbal-main\MDK-ARM\outside_imu.uvprojx
+Project File Date:  04/03/2024
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\Keil5\ARM\ARMCC\Bin'
+Build target 'outside_imu'
+compiling monitor_task.c...
+compiling chassis_task.c...
+..\task\chassis_task.c(31): warning:  #177-D: variable "a"  was declared but never referenced
+              int a;
+..\task\chassis_task.c(23): warning:  #177-D: variable "a"  was declared but never referenced
+          int a;
+..\task\chassis_task.c: 2 warnings, 0 errors
+compiling shoot_task.c...
+..\task\shoot_task.c(128): warning:  #177-D: variable "a"  was declared but never referenced
+  int a;
+..\task\shoot_task.c: 1 warning, 0 errors
+linking...
+Program Size: Code=36076 RO-data=3648 RW-data=1344 ZI-data=21984  
+FromELF: creating hex file...
+"outside_imu\outside_imu.axf" - 0 Error(s), 3 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.4.0.pack
+                ARM.CMSIS.5.4.0
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.1.2
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F4xx_DFP.2.8.0.pack
+                Keil.STM32F4xx_DFP.2.8.0
+                STMicroelectronics STM32F4 Series Device Support, Drivers and Examples
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\_outside_imu
+  D:\Keil5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include
+  D:\Keil5\ARM\PACK\Keil\STM32F4xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.1.2
+Build Time Elapsed:  00:00:03
+</pre>
+</body>
+</html>
