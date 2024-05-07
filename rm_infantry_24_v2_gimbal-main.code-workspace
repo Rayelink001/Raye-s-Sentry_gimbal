@@ -4,6 +4,12 @@
             "path": "."
         }
     ],
-    "settings": {},
+    "settings": {
+        "files.associations": {
+            "vision_task.h": "c",
+            "usart.h": "c",
+            "string.h": "c"
+        }
+    },
     "extensions": {}
 }

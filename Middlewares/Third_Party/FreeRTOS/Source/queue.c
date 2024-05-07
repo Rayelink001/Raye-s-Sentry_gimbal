@@ -1366,7 +1366,6 @@ Queue_t * const pxQueue = xQueue;
 
 		vTaskSuspendAll();
 		prvLockQueue( pxQueue );
-
 		/* Update the timeout state to see if it has expired yet. */
 		if( xTaskCheckForTimeOut( &xTimeOut, &xTicksToWait ) == pdFALSE )
 		{

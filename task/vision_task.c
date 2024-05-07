@@ -36,7 +36,7 @@ void vision_task(void const *pvParameters)
     {
         uint8_t vision_rx_data = 0;
 		
-				//if(0)
+		
         if(xQueueReceive(VisionQueueHandle, &vision_rx_data,  (4294967295)) == pdTRUE)
         {
             referee_received_data_buff[vision_parsed_received_length++] = vision_rx_data;
@@ -131,13 +131,14 @@ void vision_data_parsed(uint8_t data[VISION_RX_DATA_LENGTH])   //视觉数据解
 {
     memmove(&vision_data.pitch_angle,&data[3],4);   //获取pitch角度
     memmove(&vision_data.yaw_angle,&data[7],4);     //获取yaw角度
-    memmove(&vision_data.dis,&data[11],4);          //获取目标距离  
+    memmove(&vision_data.dis,&data[11],4);          //获取目标距离
     //对角度数据进行处理
+
     vision_data.is_switched = data[15];     //目标是否切换
     vision_data.is_find_target = data[16];  //是否扫描到目标
     vision_data.is_spinningl = data[17];    //目标是否小陀螺
     vision_data.is_middle =  data[18];      //目标是否在打击范围内
-        CDC_Transmit_FS(&vision_data.is_middle,sizeof(vision_data.is_middle));
+    
 }
 
 void vision_data_transmit(const wt61c_data_t *data) //视觉数据发送 - 这里主要给 设置的视觉模式 四元数 陀螺仪数据 弹丸初速度
@@ -146,9 +147,7 @@ void vision_data_transmit(const wt61c_data_t *data) //视觉数据发送 - 这�
     tx_buff[0] = VISION_SOF;            //SOF
     tx_buff[1] = 0x01;                  //模式
     append_CRC8_check_sum(tx_buff,3);   //CRC8
-	
 	//外置陀螺仪 wt61c 四元数 角速度 加速度
-        
     tx_buff[3] = data->quat[0].c[0];
     tx_buff[4] = data->quat[0].c[1];
     tx_buff[5] = data->quat[0].c[2];
@@ -209,7 +208,7 @@ void vision_data_transmit(const wt61c_data_t *data) //视觉数据发送 - 这�
 
     append_CRC16_check_sum(tx_buff,50);         //tx_buff[48] - tx_buff[49] CRC16校验
 
-    // CDC_Transmit_FS(tx_buff,sizeof(tx_buff));
+    CDC_Transmit_FS(tx_buff,sizeof(tx_buff));
 	// HAL_UART_Transmit_DMA(&huart6,tx_buff,sizeof(tx_buff));         //DMA方式发送
 }
 

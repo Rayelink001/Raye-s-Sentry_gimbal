@@ -18,13 +18,13 @@
         "name": "application",
         "files": [
           {
-            "path": "application/wt16c.c"
-          },
-          {
             "path": "application/can_receive.c"
           },
           {
             "path": "application/DT16_control.c"
+          },
+          {
+            "path": "application/wt16c.c"
           }
         ],
         "folders": []
@@ -50,31 +50,61 @@
                 "name": "Core",
                 "files": [
                   {
-                    "path": "Core/Src/main.c"
-                  },
-                  {
-                    "path": "Core/Src/gpio.c"
-                  },
-                  {
-                    "path": "Core/Src/freertos.c"
-                  },
-                  {
                     "path": "Core/Src/can.c"
                   },
                   {
                     "path": "Core/Src/dma.c"
                   },
                   {
-                    "path": "Core/Src/usart.c"
+                    "path": "Core/Src/freertos.c"
+                  },
+                  {
+                    "path": "Core/Src/gpio.c"
+                  },
+                  {
+                    "path": "Core/Src/main.c"
+                  },
+                  {
+                    "path": "Core/Src/stm32f4xx_hal_msp.c"
                   },
                   {
                     "path": "Core/Src/stm32f4xx_it.c"
                   },
                   {
-                    "path": "Core/Src/stm32f4xx_hal_msp.c"
+                    "path": "Core/Src/usart.c"
                   }
                 ],
                 "folders": []
+              },
+              {
+                "name": "USB_DEVICE",
+                "files": [],
+                "folders": [
+                  {
+                    "name": "App",
+                    "files": [
+                      {
+                        "path": "USB_DEVICE/App/usb_device.c"
+                      },
+                      {
+                        "path": "USB_DEVICE/App/usbd_cdc_if.c"
+                      },
+                      {
+                        "path": "USB_DEVICE/App/usbd_desc.c"
+                      }
+                    ],
+                    "folders": []
+                  },
+                  {
+                    "name": "Target",
+                    "files": [
+                      {
+                        "path": "USB_DEVICE/Target/usbd_conf.c"
+                      }
+                    ],
+                    "folders": []
+                  }
+                ]
               }
             ]
           }
@@ -84,13 +114,13 @@
         "name": "bsp",
         "files": [
           {
-            "path": "bsp/bsp_usart.c"
-          },
-          {
             "path": "bsp/bsp_can.c"
           },
           {
             "path": "bsp/bsp_DT16.c"
+          },
+          {
+            "path": "bsp/bsp_usart.c"
           }
         ],
         "folders": []
@@ -103,16 +133,16 @@
             "name": "algorithm",
             "files": [
               {
-                "path": "component/Algorithm/pid.c"
-              },
-              {
-                "path": "component/Algorithm/user_lib.c"
+                "path": "component/Algorithm/arm_cortexM4lf_math.lib"
               },
               {
                 "path": "component/Algorithm/crc.c"
               },
               {
-                "path": "component/Algorithm/arm_cortexM4lf_math.lib"
+                "path": "component/Algorithm/pid.c"
+              },
+              {
+                "path": "component/Algorithm/user_lib.c"
               }
             ],
             "folders": []
@@ -124,28 +154,22 @@
         "files": [],
         "folders": [
           {
+            "name": "CMSIS",
+            "files": [
+              {
+                "path": "Core/Src/system_stm32f4xx.c"
+              }
+            ],
+            "folders": []
+          },
+          {
             "name": "STM32F4xx_HAL_Driver",
             "files": [
               {
                 "path": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.c"
               },
               {
-                "path": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c"
-              },
-              {
-                "path": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c"
-              },
-              {
-                "path": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c"
-              },
-              {
-                "path": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c"
-              },
-              {
-                "path": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c"
-              },
-              {
-                "path": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c"
+                "path": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c"
               },
               {
                 "path": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c"
@@ -154,37 +178,52 @@
                 "path": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c"
               },
               {
-                "path": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c"
+                "path": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c"
+              },
+              {
+                "path": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c"
+              },
+              {
+                "path": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c"
+              },
+              {
+                "path": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c"
+              },
+              {
+                "path": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c"
+              },
+              {
+                "path": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c"
+              },
+              {
+                "path": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c"
               },
               {
                 "path": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c"
               },
               {
-                "path": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c"
+                "path": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c"
               },
               {
-                "path": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c"
+                "path": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c"
               },
               {
-                "path": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c"
-              },
-              {
-                "path": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c"
+                "path": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c"
               },
               {
                 "path": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c"
               },
               {
-                "path": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c"
-              }
-            ],
-            "folders": []
-          },
-          {
-            "name": "CMSIS",
-            "files": [
+                "path": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c"
+              },
               {
-                "path": "Core/Src/system_stm32f4xx.c"
+                "path": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c"
+              },
+              {
+                "path": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c"
+              },
+              {
+                "path": "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c"
               }
             ],
             "folders": []
@@ -199,6 +238,9 @@
             "name": "FreeRTOS",
             "files": [
               {
+                "path": "Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c"
+              },
+              {
                 "path": "Middlewares/Third_Party/FreeRTOS/Source/croutine.c"
               },
               {
@@ -206,6 +248,12 @@
               },
               {
                 "path": "Middlewares/Third_Party/FreeRTOS/Source/list.c"
+              },
+              {
+                "path": "Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c"
+              },
+              {
+                "path": "Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F/port.c"
               },
               {
                 "path": "Middlewares/Third_Party/FreeRTOS/Source/queue.c"
@@ -218,15 +266,24 @@
               },
               {
                 "path": "Middlewares/Third_Party/FreeRTOS/Source/timers.c"
+              }
+            ],
+            "folders": []
+          },
+          {
+            "name": "USB_Device_Library",
+            "files": [
+              {
+                "path": "Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c"
               },
               {
-                "path": "Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c"
+                "path": "Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c"
               },
               {
-                "path": "Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c"
+                "path": "Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c"
               },
               {
-                "path": "Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F/port.c"
+                "path": "Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c"
               }
             ],
             "folders": []
@@ -237,19 +294,19 @@
         "name": "task",
         "files": [
           {
-            "path": "task/gimbal_task.c"
+            "path": "task/chassis_task.c"
           },
           {
-            "path": "task/chassis_task.c"
+            "path": "task/gimbal_task.c"
           },
           {
             "path": "task/monitor_task.c"
           },
           {
-            "path": "task/vision_task.c"
+            "path": "task/shoot_task.c"
           },
           {
-            "path": "task/shoot_task.c"
+            "path": "task/vision_task.c"
           }
         ],
         "folders": []
@@ -384,8 +441,8 @@
         "bin": "",
         "baseAddr": "",
         "cpuInfo": {
-          "vendor": "null",
-          "cpuName": "null"
+          "vendor": "ST",
+          "cpuName": "STM32F407IG"
         },
         "proType": 1,
         "speed": 8000,
@@ -408,6 +465,10 @@
           "task",
           "component",
           "component/Algorithm",
+          "USB_DEVICE/App",
+          "USB_DEVICE/Target",
+          "Middlewares/ST/STM32_USB_Device_Library/Core/Inc",
+          "Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc",
           "MDK-ARM/RTE/_outside_imu"
         ],
         "libList": [],

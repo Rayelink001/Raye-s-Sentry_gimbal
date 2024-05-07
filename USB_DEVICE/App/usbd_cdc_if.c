@@ -23,10 +23,13 @@
 
 /* USER CODE BEGIN INCLUDE */
 
+#include "cmsis_os.h"
+#include "queue.h"
 /* USER CODE END INCLUDE */
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
+extern osMessageQId VisionQueueHandle;
 /* Private macro -------------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
@@ -261,8 +264,10 @@ static int8_t CDC_Control_FS(uint8_t cmd, uint8_t* pbuf, uint16_t length)
 static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len)
 {
   /* USER CODE BEGIN 6 */
+  
   USBD_CDC_SetRxBuffer(&hUsbDeviceFS, &Buf[0]);
   USBD_CDC_ReceivePacket(&hUsbDeviceFS);
+  xQueueSendFromISR(VisionQueueHandle, &Buf, 0);
   return (USBD_OK);
   /* USER CODE END 6 */
 }
