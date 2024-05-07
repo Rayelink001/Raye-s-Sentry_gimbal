@@ -1,5 +1,5 @@
 #include "vision_task.h"    
-
+#include "usbd_cdc_if.h"
 #include "cmsis_os.h"
 #include "queue.h"    //队列支持
 #include "crc.h"      //CRC校验用
@@ -35,7 +35,7 @@ void vision_task(void const *pvParameters)
     while (1)
     {
         uint8_t vision_rx_data = 0;
-				
+		
 				//if(0)
         if(xQueueReceive(VisionQueueHandle, &vision_rx_data,  (4294967295)) == pdTRUE)
         {
@@ -110,7 +110,7 @@ void vision_task(void const *pvParameters)
                     break;
             }
         }
-       
+   
 	    vTaskDelay(1);
     }    
 }
@@ -137,6 +137,7 @@ void vision_data_parsed(uint8_t data[VISION_RX_DATA_LENGTH])   //视觉数据解
     vision_data.is_find_target = data[16];  //是否扫描到目标
     vision_data.is_spinningl = data[17];    //目标是否小陀螺
     vision_data.is_middle =  data[18];      //目标是否在打击范围内
+        CDC_Transmit_FS(&vision_data.is_middle,sizeof(vision_data.is_middle));
 }
 
 void vision_data_transmit(const wt61c_data_t *data) //视觉数据发送 - 这里主要给 设置的视觉模式 四元数 陀螺仪数据 弹丸初速度
@@ -208,7 +209,8 @@ void vision_data_transmit(const wt61c_data_t *data) //视觉数据发送 - 这�
 
     append_CRC16_check_sum(tx_buff,50);         //tx_buff[48] - tx_buff[49] CRC16校验
 
-	HAL_UART_Transmit_DMA(&huart6,tx_buff,sizeof(tx_buff));         //DMA方式发送
+    // CDC_Transmit_FS(tx_buff,sizeof(tx_buff));
+	// HAL_UART_Transmit_DMA(&huart6,tx_buff,sizeof(tx_buff));         //DMA方式发送
 }
 
 const vision_data_t *get_vision_data_point(void) //获取视觉数据指针
