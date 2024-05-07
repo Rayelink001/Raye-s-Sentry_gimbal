@@ -13,7 +13,7 @@
 #define DEBUG_SET_SPEED 1                  //yaw轴速度环调试设定速度
 
 #define GIMBAL_RC_DEADLINE 10 //遥控死区
-#define YAW_RC_CEN -0.00002f//0.05f//-0.00005f//YAW-RC通道转换率
+#define YAW_RC_CEN -0.00012f//0.05f//-0.00005f//YAW-RC通道转换率
 #define YAW_MOUSE_RC_CEN -0.001f
 #define PIT_RC_CEN 0.0002///-0.004f//-0.000009f//PITCH-RC通道转换率
 #define PIT_MOUSE_RC_CEN -0.0006f

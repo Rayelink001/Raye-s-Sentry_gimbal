@@ -237,19 +237,19 @@
         "name": "task",
         "files": [
           {
-            "path": "task/chassis_task.c"
+            "path": "task/gimbal_task.c"
           },
           {
-            "path": "task/gimbal_task.c"
+            "path": "task/chassis_task.c"
           },
           {
             "path": "task/monitor_task.c"
           },
           {
-            "path": "task/shoot_task.c"
+            "path": "task/vision_task.c"
           },
           {
-            "path": "task/vision_task.c"
+            "path": "task/shoot_task.c"
           }
         ],
         "folders": []
@@ -265,15 +265,117 @@
   "targets": {
     "outside_imu": {
       "excludeList": [],
-      "toolchain": "GCC",
+      "toolchain": "AC5",
       "compileConfig": {
         "cpuType": "Cortex-M4",
         "floatingPointHardware": "single",
-        "scatterFilePath": "<YOUR_LINKER_SCRIPT>.lds",
-        "useCustomScatterFile": true,
+        "scatterFilePath": "",
+        "useCustomScatterFile": false,
         "storageLayout": {
-          "RAM": [],
-          "ROM": []
+          "RAM": [
+            {
+              "tag": "RAM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "noInit": false
+            },
+            {
+              "tag": "RAM",
+              "id": 2,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "noInit": false
+            },
+            {
+              "tag": "RAM",
+              "id": 3,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "noInit": false
+            },
+            {
+              "tag": "IRAM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x20000000",
+                "size": "0x1c000"
+              },
+              "isChecked": true,
+              "noInit": false
+            },
+            {
+              "tag": "IRAM",
+              "id": 2,
+              "mem": {
+                "startAddr": "0x2001c000",
+                "size": "0x4000"
+              },
+              "isChecked": true,
+              "noInit": false
+            }
+          ],
+          "ROM": [
+            {
+              "tag": "ROM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "isStartup": false
+            },
+            {
+              "tag": "ROM",
+              "id": 2,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "isStartup": false
+            },
+            {
+              "tag": "ROM",
+              "id": 3,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "isStartup": false
+            },
+            {
+              "tag": "IROM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x8000000",
+                "size": "0x100000"
+              },
+              "isChecked": true,
+              "isStartup": true
+            },
+            {
+              "tag": "IROM",
+              "id": 2,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "isStartup": false
+            }
+          ]
         },
         "options": "null"
       },
@@ -306,9 +408,7 @@
           "task",
           "component",
           "component/Algorithm",
-          ".cmsis/include",
-          "MDK-ARM/RTE/_outside_imu",
-          ".eide/deps"
+          "MDK-ARM/RTE/_outside_imu"
         ],
         "libList": [],
         "sourceDirList": [],

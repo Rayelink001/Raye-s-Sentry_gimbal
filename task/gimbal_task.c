@@ -134,7 +134,7 @@ gimbal_control_data_t gimbal_control_data =
         },
         .imu_speed_pid =
         {
-            .Kp = 160.0f,
+            .Kp = 80.0f,
             .Ki = 1.0f,
             .Kd = 2.1f,
             .max_out = 5000.0f,
